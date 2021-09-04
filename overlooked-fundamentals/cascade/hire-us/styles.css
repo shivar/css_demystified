@@ -86,17 +86,14 @@ p {
 }
 
 .candidate .tag {
-  color: var(--fg, #fff);
-  background-color: var(--bg, var(--clr-base-400));
-}
-
-.candidate .tag {
   font-size: var(--fs-300);
   font-weight: 400;
   letter-spacing: 1px;
   padding: .25em 1.25em;
   margin-right: .75em;
   border-radius: 26px;
+  color: var(--fg, #fff);
+  background-color: var(--bg, var(--clr-base-400));
 }
 
 .candidate img {
@@ -129,6 +126,12 @@ p {
   color: var(--fg, #fff);
   background: var(--bg, var(--clr-accent-400));
   border-radius: var(--border-radius);
+  transition: opacity 500ms;
+}
+
+.btn:hover,
+.btn:focus {
+  opacity: .8;
 }
 
 .candidate .social {
@@ -136,6 +139,15 @@ p {
   padding: 0;
   list-style: none;
   justify-content: space-evenly;
+}
+
+.candidate .social img {
+  transition: opacity 250ms;
+}
+
+.candidate .social img:hover,
+.candidate .social img:focus {
+  opacity: 0.5;
 }
 
 @media (min-width: 500px) {

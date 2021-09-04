@@ -1,0 +1,181 @@
+:root {
+  --clr-base-400: #5e5e5e;
+  --clr-base-500: #494949;
+
+  --clr-ui-300: #f8e2ff;
+  --clr-ui-400: #580d3a;
+  --clr-ux-300: #e2ffea;
+  --clr-ux-400: #115926;
+  --clr-dev-300: #e2fcff;
+  --clr-dev-400: #024f4f;
+
+  --clr-accent-400: #7e47c5;
+
+  --ff-accent: "Podkova", serif;
+  --ff-base: "Open Sans", sans-serif;
+
+  --fs-300: 0.75rem;
+  --fs-400: 1rem;
+  --fs-500: 2rem;
+
+  --fw-400: 400;
+  --fw-700: 700;
+
+  --shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+  --border-radius: 0.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+/* /////////////////
+   Layout related
+   no need to touch any of this
+//////////////////*/
+body {
+  font-family: var(--ff-base);
+  color: var(--clr-base-400);
+}
+
+p {
+  margin: 0;
+}
+
+.candidates {
+  max-width: 70em;
+  margin: 0 auto;
+  padding: 2em;
+  display: grid;
+  gap: 2em;
+}
+
+.candidate {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-areas:
+    "img social"
+    "name name"
+    "role role"
+    "bio bio"
+    "button button";
+  gap: 0.5em;
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+
+  padding: 1em;
+}
+
+.candidate .name {
+  font-family: var(--ff-accent);
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--clr-base-500);
+  margin: 0;
+}
+
+.candidate .roles {
+  margin-bottom: 1em;
+}
+
+.candidate .tag {
+  color: var(--fg, #fff);
+  background-color: var(--bg, var(--clr-base-400));
+}
+
+.candidate .tag {
+  font-size: var(--fs-300);
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding: .25em 1.25em;
+  margin-right: .75em;
+  border-radius: 26px;
+}
+
+.candidate img {
+  border-radius: var(--border-radius);
+}
+
+.ui {
+  --fg: var(--clr-ui-400);
+  --bg: var(--clr-ui-300);
+}
+
+.dev {
+  --fg: var(--clr-dev-400);
+  --bg: var(--clr-dev-300);
+}
+
+.ux {
+  --fg: var(--clr-ux-400);
+  --bg: var(--clr-ux-300);
+}
+
+.btn {
+  display: inline-block;
+  padding: .5em 2.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  justify-self: flex-end;
+  align-self: center;
+  color: var(--fg, #fff);
+  background: var(--bg, var(--clr-accent-400));
+  border-radius: var(--border-radius);
+}
+
+.candidate .social {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+@media (min-width: 500px) {
+  .candidate {
+    grid-template-columns: min-content minmax(15rem, 22.5rem);
+    grid-template-rows: min-content min-content 1fr auto;
+    grid-template-areas:
+      "img name"
+      "img role"
+      "img bio"
+      "social button";
+  }
+}
+
+@media (min-width: 960px) {
+  .candidates {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.candidate img {
+  grid-area: img;
+}
+
+.candidate .name {
+  grid-area: name;
+}
+
+.candidate .roles {
+  grid-area: role;
+}
+
+.candidate .bio {
+  grid-area: bio;
+}
+
+.candidate .social {
+  grid-area: social;
+}
+
+.candidate .btn {
+  grid-area: button;
+}
